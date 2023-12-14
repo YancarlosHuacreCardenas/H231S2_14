@@ -1,33 +1,31 @@
-DROP DATABASE Hackaton;
-create database Hackaton;
-use Hackaton;
+CREATE DATABASE Hackathon;
 
-CREATE TABLE Computadora(
-ID int(1),
-Tipo_de_Equipo VARCHAR(20),
-Marca VARCHAR(30),
-Modelo VARCHAR(30),
-Serie VARCHAR(50),
-F_Compra VARCHAR(20),
-Garantia CHAR(6),
-Detalle VARCHAR(150),
-Estado_de_equipo VARCHAR(10),
-Sistema_de_Control_de_Equipos varchar(20)
+USE Hackathon;
+
+CREATE TABLE EQUIPO
+(
+Id INT AUTO_INCREMENT NOT NULL,
+Marca VARCHAR(80),
+Modelo VARCHAR(80),
+Especificaciones VARCHAR(80),
+Mantenimiento VARCHAR(80),
+Cantidad INT,
+Fabricacion VARCHAR(50),
+E_Equipo VARCHAR(60),
+CONSTRAINT Id_pk PRIMARY KEY (Id)
 );
 
-INSERT INTO Computadora(ID, Tipo_de_Equipo, Marca, Modelo, Serie ,F_Compra ,Garantia ,Detalle ,Estado_de_equipo ,Sistema_de_Control_de_Equipos)
-VALUES
-('1', 'computadora', 'hp', 'nose', 'cualquiera', 'efectivo', '150', 'la compra no fue completado', 'nuevo', 'Combox' ),
-('2', 'pc', 'hp', 'lenovo', 'cualquiera', 'yape', '140.99', 'nose', 'viejo', 'Radio Button'),
-('3', 'pc', 'hp', 'lenovo', 'cualquiera', 'yape', '140.99', 'nose', 'viejo', 'Radio Button');
-select *from Computadora;
+DESC EQUIPO;
 
-Select Listar;
+-- MOSTRAR
+SELECT * FROM EQUIPO;
 
-Select Agregar Datos;
+-- LISTAR
+INSERT INTO EQUIPO(Marca, Modelo, Especificaciones, Mantenimiento, Cantidad, Fabricacion, E_Equipo)
+VALUES ('HP', 'Window', 'Color bando y negro', '6', 1, 'Levono', 'Activa');
 
-Select Modificar;
+-- MODIFICAR
+UPDATE EQUIPO SET Marca = 'LEVENO' WHERE Id = 1;
 
-Select Eliminar;
-
-DROP TABLE Computadora;
+-- ELIMINAR
+DELETE FROM EQUIPO WHERE Id=1;
